@@ -1,0 +1,327 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080808">
+    <meta name="description" content="Mishra Media Works - Web development, digital marketing, branding and design.">
+
+    <title>Mishra Media Works | Digital Agency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+    <script src="{% static 'website/js/script.js' %}" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="navbar container">
+        <a href="#home" class="brand" aria-label="Mishra Media Works Home">
+            <img
+                src="{% static 'website/images/mishra-logo.jpeg' %}"
+                alt="Mishra Media Works Logo"
+                class="brand-logo">
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="navLinks">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#why-us" class="nav-link">Why Us</a>
+            <a href="#contact" class="nav-link nav-contact">Contact Us ↗</a>
+        </div>
+    </nav>
+
+    <div class="gold-animated-line"><span></span></div>
+
+    <div class="service-ticker">
+        <div class="ticker-track">
+            <span>✦ WEB DEVELOPMENT</span>
+            <span>✦ DIGITAL MARKETING</span>
+            <span>✦ BRANDING & DESIGN</span>
+            <span>✦ SOCIAL MEDIA</span>
+            <span>✦ IT SOLUTIONS</span>
+            <span>✦ WEB DEVELOPMENT</span>
+            <span>✦ DIGITAL MARKETING</span>
+            <span>✦ BRANDING & DESIGN</span>
+            <span>✦ SOCIAL MEDIA</span>
+            <span>✦ IT SOLUTIONS</span>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-glow"></div>
+
+        <div class="container hero-content">
+            <p class="eyebrow">
+                <span class="dot"></span>
+                CREATIVE IDEAS. DIGITAL IMPACT.
+            </p>
+
+            <h1>Build Your Brand.<br>
+                <span class="gold">Own Your Future.</span>
+            </h1>
+
+            <p class="hero-description">
+                We create modern websites and digital experiences
+                that help businesses build a powerful online presence.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-gold">Start Your Project ↗</a>
+                <a href="#portfolio" class="btn btn-outline">Explore Our Work</a>
+            </div>
+
+            <div class="hero-note">
+                <span class="note-line"></span>
+                YOUR VISION, OUR DIGITAL CRAFT
+            </div>
+        </div>
+
+        <a href="#about" class="scroll-cue">SCROLL TO EXPLORE ↓</a>
+    </section>
+
+    <section class="section about-section" id="about">
+        <div class="container two-column">
+            <div>
+                <p class="section-label">01 — WHO WE ARE</p>
+                <h2>Ideas That Turn Into<br>
+                    <span class="gold">Digital Reality.</span>
+                </h2>
+            </div>
+
+            <div class="about-copy">
+                <p>
+                    Mishra Media Works helps businesses establish a
+                    professional digital presence through thoughtful design,
+                    modern websites and creative solutions.
+                </p>
+                <a href="#services" class="text-link">Discover Our Services →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section services-section" id="services">
+        <div class="container">
+            <p class="section-label">02 — WHAT WE DO</p>
+
+            <div class="section-heading">
+                <h2>Our <span class="gold">Services</span></h2>
+                <p>Creative solutions to move your business forward.</p>
+            </div>
+
+            <div class="service-grid">
+                <article class="service-card reveal">
+                    <span class="service-number">01</span>
+                    <div class="service-icon">⌘</div>
+                    <h3>Website Development</h3>
+                    <p>Responsive business websites, landing pages and custom web applications.</p>
+                    <a href="#contact" class="card-link">Discuss a Project ↗</a>
+                </article>
+
+                <article class="service-card reveal">
+                    <span class="service-number">02</span>
+                    <div class="service-icon">✳</div>
+                    <h3>UI & Graphic Design</h3>
+                    <p>Modern layouts and visual assets for a consistent brand identity.</p>
+                    <a href="#contact" class="card-link">Discuss a Project ↗</a>
+                </article>
+
+                <article class="service-card reveal">
+                    <span class="service-number">03</span>
+                    <div class="service-icon">◎</div>
+                    <h3>Social Media Creatives</h3>
+                    <p>Creative graphics and content assets for your online platforms.</p>
+                    <a href="#contact" class="card-link">Discuss a Project ↗</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section portfolio-section" id="portfolio">
+        <div class="container">
+            <p class="section-label">03 — SELECTED WORK</p>
+
+            <div class="section-heading">
+                <h2>Our <span class="gold">Portfolio</span></h2>
+                <p>Sample concepts showing our approach to digital experiences.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <article class="project-card reveal">
+                    <div class="project-art project-one">
+                        <span>01 / WEB DESIGN</span>
+                        <strong>Luxury<br>Experiences.</strong>
+                    </div>
+                    <div class="project-info">
+                        <h3>Luxury Hotel Website</h3>
+                        <span>Website Design & Development</span>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-art project-two">
+                        <span>02 / E-COMMERCE</span>
+                        <strong>Shop<br>Smarter.</strong>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Concept</h3>
+                        <span>Online Store Experience</span>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-art project-three">
+                        <span>03 / BUSINESS</span>
+                        <strong>Grow<br>Digitally.</strong>
+                    </div>
+                    <div class="project-info">
+                        <h3>Business Landing Page</h3>
+                        <span>Brand & Web Concept</span>
+                    </div>
+                </article>
+            </div>
+            
+<!-- Digital Marketing Portfolio Cards -->
+<div class="portfolio-grid">
+
+    <div class="portfolio-card">
+        <div class="portfolio-image meta-bg">
+            <span class="portfolio-number">04 / META ADS</span>
+            <div class="portfolio-art">
+                <span class="meta-symbol">◎</span>
+                <h3>Reach<br>More People.</h3>
+                <p>Facebook & Instagram Advertising</p>
+            </div>
+        </div>
+        <h3>Meta Ads Campaigns</h3>
+        <p>Facebook & Instagram Advertising</p>
+    </div>
+
+    <div class="portfolio-card">
+        <div class="portfolio-image google-bg">
+            <span class="portfolio-number">05 / GOOGLE ADS</span>
+            <div class="portfolio-art">
+                <span class="google-symbol">G</span>
+                <h3>Be Found.<br>Get Chosen.</h3>
+                <p>Search Advertising Campaigns</p>
+            </div>
+        </div>
+        <h3>Google Ads Campaigns</h3>
+        <p>Search Ads & Lead Generation</p>
+    </div>
+
+    <div class="portfolio-card">
+        <div class="portfolio-image web-bg">
+            <span class="portfolio-number">06 / WEB DESIGN</span>
+            <div class="portfolio-art">
+                <span class="web-symbol">⌘</span>
+                <h3>Design.<br>Develop. Deliver.</h3>
+                <p>Modern Responsive Websites</p>
+            </div>
+        </div>
+        <h3>Website Development</h3>
+        <p>Business Websites & Landing Pages</p>
+    </div>
+
+</div>
+
+
+            <p class="portfolio-disclaimer">
+                These are sample concepts. Replace them with your actual projects before publishing.
+            </p>
+        </div>
+    </section>
+
+    <section class="section why-section" id="why-us">
+        <div class="container">
+            <p class="section-label">04 — WHY CHOOSE US</p>
+
+            <div class="section-heading">
+                <h2>Built Around <span class="gold">Your Goals.</span></h2>
+                <p>Thoughtful design, responsive development and clear communication.</p>
+            </div>
+
+            <div class="why-grid">
+                <article class="why-item reveal">
+                    <span>✦</span>
+                    <h3>Modern Design</h3>
+                    <p>Clean layouts and elegant visual experiences.</p>
+                </article>
+
+                <article class="why-item reveal">
+                    <span>↗</span>
+                    <h3>Responsive Builds</h3>
+                    <p>Designed for mobile, tablet and desktop.</p>
+                </article>
+
+                <article class="why-item reveal">
+                    <span>◇</span>
+                    <h3>Clear Communication</h3>
+                    <p>Straightforward project discussions and updates.</p>
+                </article>
+
+                <article class="why-item reveal">
+                    <span>⌘</span>
+                    <h3>Tailored Solutions</h3>
+                    <p>Digital solutions suited to your requirements.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container contact-box reveal">
+            <p class="section-label">05 — LET'S CONNECT</p>
+            <h2>Have an Idea?<br>
+                <span class="gold">Let's Build It.</span>
+            </h2>
+            <p>Tell us about your project. Let's discuss how we can help.</p>
+
+            
+<a class="btn btn-gold"
+   href="https://wa.me/917081747305"
+   target="_blank"
+   rel="noopener noreferrer">
+    Chat on WhatsApp ↗
+</a>
+
+
+            <p class="contact-note">
+                Replace the sample number with your WhatsApp number.
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <a href="#home" class="brand footer-brand">
+            <img src="{% static 'website/images/mishra-logo.jpeg' %}"
+                 alt="Mishra Media Works Logo" class="brand-logo">
+        </a>
+
+        <p>© <span id="currentYear"></span> Mishra Media Works. All rights reserved.</p>
+        <a href="#home" class="back-top">Back to Top ↑</a>
+    </div>
+</footer>
+
+</body>
+</html>
