@@ -2,43 +2,1045 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080808">
-    <meta name="description" content="Mishra Media Works - Web development, digital marketing, branding and design.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="Mishra Media Works - Website Development, Digital Marketing and Branding.">
+<title>Mishra Media Works | Digital Agency</title>
 
-    <title>Mishra Media Works | Digital Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root {
+    --bg: #080808;
+    --surface: #111110;
+    --card: #171715;
+    --gold: #d9b568;
+    --gold-light: #f5dda1;
+    --white: #f7f5ef;
+    --muted: #aaa69b;
+    --border: rgba(217,181,104,.23);
+}
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./static/website/css/style.css">
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
 
-    <!-- JavaScript -->
-    <script src="./static/website/js/script.js" defer></script>
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+.gold {
+    color: var(--gold);
+}
+
+section {
+    scroll-margin-top: 120px;
+}
+
+/* NAVBAR */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,8,8,.96);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.brand-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.2;
+}
+
+.brand-text small {
+    display: block;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-link {
+    position: relative;
+    color: #d0cec7;
+    font-size: 13px;
+    transition: color .3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--gold);
+}
+
+.nav-link:not(.nav-contact)::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.nav-contact {
+    padding: 9px 13px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+.menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    padding: 9px;
+    background: transparent;
+    border: 1px solid var(--border);
+}
+
+.menu-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--gold);
+    margin: 5px 0;
+    transition: transform .25s, opacity .25s;
+}
+
+/* GOLD ANIMATED LINE */
+.gold-animated-line {
+    height: 2px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(217,181,104,.12);
+}
+
+.gold-animated-line span {
+    position: absolute;
+    top: 0;
+    left: -35%;
+    width: 35%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, transparent, var(--gold),
+        #fff1c7, var(--gold), transparent
+    );
+    box-shadow: 0 0 12px rgba(217,181,104,.7);
+    animation: goldSweep 4s ease-in-out infinite;
+}
+
+@keyframes goldSweep {
+    from { left: -35%; }
+    to { left: 100%; }
+}
+
+/* MOVING SERVICES STRIP */
+.service-ticker {
+    overflow: hidden;
+    background: #0d0d0c;
+    border-bottom: 1px solid rgba(217,181,104,.12);
+    white-space: nowrap;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 45px;
+    padding: 9px 0;
+    animation: tickerMove 32s linear infinite;
+}
+
+.ticker-track span {
+    color: #c9b98f;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.service-ticker:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+@keyframes tickerMove {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* HERO */
+.hero {
+    min-height: 78vh;
+    min-height: 78svh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 80% 35%, rgba(150,105,33,.19), transparent 38%),
+        linear-gradient(135deg, #11110e, #080808 65%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .1;
+    background-image:
+        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+.hero-glow {
+    position: absolute;
+    right: 8%;
+    top: 20%;
+    width: 350px;
+    height: 350px;
+    border: 1px solid rgba(217,181,104,.17);
+    border-radius: 50%;
+    box-shadow: 0 0 100px rgba(217,181,104,.08),
+                inset 0 0 80px rgba(217,181,104,.04);
+    animation: floatGlow 7s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes floatGlow {
+    to { transform: translate(-18px,15px) scale(1.08); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 95px 0;
+    animation: enter .9s ease both;
+}
+
+@keyframes enter {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow,
+.section-label {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 12px var(--gold);
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.hero h1 {
+    font-size: clamp(43px, 7vw, 82px);
+    letter-spacing: -1.8px;
+}
+
+.hero-description {
+    max-width: 580px;
+    color: var(--muted);
+    margin-top: 25px;
+    font-size: 16px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 22px;
+    min-height: 49px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: transform .3s, background .3s, box-shadow .3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-gold {
+    color: #100e09;
+    background: var(--gold);
+}
+
+.btn-gold:hover {
+    background: var(--gold-light);
+    box-shadow: 0 8px 30px rgba(217,181,104,.2);
+}
+
+.btn-outline {
+    border: 1px solid #48453c;
+}
+
+.btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.hero-note {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 60px;
+    color: #77746c;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.note-line {
+    width: 38px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.scroll-cue {
+    position: absolute;
+    bottom: 25px;
+    right: 5%;
+    color: #8d887c;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+/* GENERAL SECTIONS */
+.section {
+    padding: 100px 0;
+}
+
+.section h2,
+.contact-box h2 {
+    font-size: clamp(32px, 4vw, 48px);
+}
+
+.section-label {
+    margin-bottom: 25px;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.about-section {
+    background: #0d0d0d;
+    border-block: 1px solid rgba(255,255,255,.04);
+}
+
+.about-copy p,
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.text-link {
+    display: inline-flex;
+    gap: 12px;
+    margin-top: 24px;
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 38px;
+}
+
+.section-heading p {
+    max-width: 430px;
+}
+
+/* SERVICE CARDS */
+.services-section {
+    background: var(--surface);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 20px;
+}
+
+.service-card {
+    position: relative;
+    overflow: hidden;
+    padding: 32px 26px;
+    min-height: 285px;
+    background: var(--card);
+    border: 1px solid #29271f;
+    transition: transform .4s, border-color .4s, box-shadow .4s;
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 0%, rgba(217,181,104,.13), transparent 65%);
+    opacity: 0;
+    transition: opacity .4s;
+    pointer-events: none;
+}
+
+.service-card:hover {
+    transform: translateY(-9px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 45px rgba(0,0,0,.3);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-number {
+    position: absolute;
+    right: 22px;
+    top: 18px;
+    color: #696354;
+    font-size: 12px;
+}
+
+.service-icon {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 25px;
+    transition: .35s;
+}
+
+.service-card:hover .service-icon {
+    background: var(--gold);
+    color: #080808;
+    transform: translateY(-4px) rotate(-5deg);
+}
+
+.service-card h3,
+.why-item h3 {
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+.service-card p,
+.why-item p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 22px;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* PORTFOLIO */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 36px;
+    perspective: 1400px;
+    margin-bottom: 32px;
+}
+
+.project-card {
+    min-width: 0;
+    transition: transform .4s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+}
+
+.project-art {
+    min-height: 260px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: filter .4s;
+}
+
+.project-art span {
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.project-art strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1.15;
+    transition: transform .4s, color .4s;
+}
+
+.project-card:hover .project-art {
+    filter: brightness(1.2);
+}
+
+.project-card:hover .project-art strong {
+    transform: translateX(5px);
+    color: var(--gold-light);
+}
+
+.project-one {
+    background: radial-gradient(circle at 75% 25%, #80633a, #312619 45%, #15130f);
+}
+
+.project-two {
+    background: radial-gradient(circle at 20% 80%, #66512c, #29251c 50%, #131313);
+}
+
+.project-three {
+    background: radial-gradient(circle at 80% 70%, #5c4523, #282218 48%, #111);
+}
+
+.project-info {
+    padding: 18px 0;
+}
+
+.project-info h3 {
+    font-size: 16px;
+    transition: color .3s;
+}
+
+.project-card:hover .project-info h3 {
+    color: var(--gold);
+}
+
+.project-info span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.portfolio-disclaimer {
+    color: #77746c;
+    font-size: 11px;
+    margin-top: 12px;
+}
+
+/* PREMIUM DIGITAL MARKETING CARDS */
+.portfolio-card {
+    position: relative;
+    overflow: hidden;
+    animation: luxuryEntrance 1s cubic-bezier(.16, 1, .3, 1) both;
+    transition: transform .65s cubic-bezier(.2, .8, .2, 1);
+}
+
+.portfolio-card:nth-child(1) { animation-delay: .1s; }
+.portfolio-card:nth-child(2) { animation-delay: .25s; }
+.portfolio-card:nth-child(3) { animation-delay: .4s; }
+
+.portfolio-image {
+    position: relative;
+    overflow: hidden;
+    min-height: 350px;
+    padding: 22px;
+    isolation: isolate;
+    border: 1px solid rgba(214,181,109,.15);
+    background-size: 200% 200%;
+    transition: border-color .6s ease, box-shadow .6s ease;
+}
+
+.portfolio-image::before {
+    content: "";
+    position: absolute;
+    inset: -35%;
+    z-index: -2;
+    background: radial-gradient(
+        ellipse at 65% 35%,
+        rgba(214,181,109,.42),
+        rgba(119,87,42,.19) 35%,
+        transparent 70%
+    );
+    transform: translate3d(-5%,3%,0);
+    animation: goldAtmosphere 9s ease-in-out infinite alternate;
+    transition: transform 1s;
+}
+
+.portfolio-image::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -120%;
+    width: 65%;
+    height: 200%;
+    transform: rotate(25deg);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,239,195,.08),
+        rgba(255,239,195,.20),
+        transparent
+    );
+    pointer-events: none;
+    transition: left 1s;
+}
+
+.meta-bg {
+    background-color: #17130e;
+    background-image: linear-gradient(135deg,#211910,#493823 55%,#17130e);
+}
+
+.google-bg {
+    background-color: #171613;
+    background-image: linear-gradient(135deg,#171613,#302b20 55%,#11110f);
+}
+
+.web-bg {
+    background-color: #1b1710;
+    background-image: linear-gradient(135deg,#201a12,#493722 55%,#17130e);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-9px);
+}
+
+.portfolio-card:hover .portfolio-image {
+    border-color: rgba(214,181,109,.65);
+    box-shadow: 0 18px 55px rgba(0,0,0,.32),
+                0 0 24px rgba(214,181,109,.07);
+}
+
+.portfolio-card:hover .portfolio-image::before {
+    transform: translate3d(5%,-4%,0) scale(1.12);
+}
+
+.portfolio-card:hover .portfolio-image::after {
+    left: 150%;
+}
+
+.portfolio-art {
+    position: relative;
+    z-index: 2;
+    padding-top: 65px;
+    transition: transform .7s;
+}
+
+.portfolio-card:hover .portfolio-art {
+    transform: translateY(-8px);
+}
+
+.portfolio-number {
+    position: relative;
+    z-index: 2;
+    color: #e3d1a5;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: color .5s, letter-spacing .5s;
+}
+
+.portfolio-card:hover .portfolio-number {
+    color: #f1dca7;
+    letter-spacing: 2.5px;
+}
+
+.portfolio-art h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 18px 0;
+    transition: color .5s, letter-spacing .5s, text-shadow .5s;
+}
+
+.portfolio-card:hover .portfolio-art h3 {
+    color: #ffe9b8;
+    letter-spacing: .25px;
+    text-shadow: 0 0 25px rgba(214,181,109,.12);
+}
+
+.portfolio-art p {
+    color: #c1b9a8;
+    font-size: 12px;
+}
+
+.meta-symbol,
+.google-symbol,
+.web-symbol {
+    display: inline-block;
+    font-size: 45px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 10px;
+    transition: transform .4s;
+}
+
+.portfolio-card:hover .meta-symbol,
+.portfolio-card:hover .google-symbol,
+.portfolio-card:hover .web-symbol {
+    transform: scale(1.12);
+}
+
+.portfolio-card > h3 {
+    margin-top: 18px;
+    font-size: 16px;
+    transition: color .4s, transform .5s;
+}
+
+.portfolio-card > p {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+    transition: color .4s, transform .5s;
+}
+
+.portfolio-card:hover > h3 {
+    color: var(--gold);
+    transform: translateX(3px);
+}
+
+.portfolio-card:hover > p {
+    color: #e0d2b4;
+    transform: translateX(3px);
+}
+
+@keyframes luxuryEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes goldAtmosphere {
+    0% { transform: translate3d(-5%,3%,0) scale(1); }
+    100% { transform: translate3d(5%,-3%,0) scale(1.08); }
+}
+
+/* WHY US */
+.why-section {
+    background: #10100f;
+    border-block: 1px solid var(--border);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.why-item {
+    padding-top: 25px;
+    border-top: 1px solid #373329;
+    transition: transform .35s, border-color .35s;
+}
+
+.why-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.why-item > span {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-size: 27px;
+    transition: transform .35s;
+}
+
+.why-item:hover > span {
+    transform: scale(1.15) rotate(8deg);
+}
+
+/* CONTACT */
+.contact-section {
+    padding: 100px 0;
+    text-align: center;
+    background: radial-gradient(ellipse at center,rgba(153,113,45,.13),transparent 60%),var(--bg);
+}
+
+.contact-box h2 {
+    margin-bottom: 20px;
+}
+
+.contact-box > p:not(.section-label):not(.contact-note) {
+    margin-bottom: 30px;
+    color: var(--muted);
+}
+
+.contact-note {
+    margin-top: 15px;
+    color: #77746c;
+    font-size: 11px;
+}
+
+/* FOOTER */
+.footer {
+    background: #0b0b0b;
+    border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+    min-height: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-inner > p,
+.back-top {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.back-top:hover {
+    color: var(--gold);
+}
+
+/* SCROLL REVEAL */
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TABLET */
+@media (max-width: 950px) {
+    .nav-links { gap: 13px; }
+    .nav-link { font-size: 12px; }
+    .service-grid,
+    .portfolio-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .why-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+/* MOBILE */
+@media (max-width: 760px) {
+    .navbar { min-height: 70px; }
+
+    .brand-text { font-size: 18px; }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 5% 22px;
+        background: #10100f;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.open {
+        display: flex;
+        animation: menuIn .25s ease;
+    }
+
+    @keyframes menuIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-link {
+        padding: 12px 4px;
+        font-size: 14px;
+    }
+
+    .nav-contact {
+        margin-top: 8px;
+        text-align: center;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .ticker-track { gap: 28px; padding: 8px 0; }
+    .ticker-track span { font-size: 9px; letter-spacing: 1.4px; }
+
+    .hero { min-height: 78svh; }
+    .hero h1 { letter-spacing: -1px; }
+    .hero-description { font-size: 14px; }
+    .hero-note { margin-top: 45px; }
+    .hero-glow { width: 210px; height: 210px; right: -65px; top: 20%; }
+
+    .section { padding: 75px 0; }
+    .two-column { grid-template-columns: 1fr; gap: 25px; }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .service-grid,
+    .portfolio-grid { grid-template-columns: 1fr; }
+
+    .service-card { min-height: 240px; }
+    .project-art { min-height: 230px; }
+    .portfolio-image { min-height: 320px; }
+    .portfolio-art { padding-top: 45px; }
+    .why-grid { gap: 25px 18px; }
+    .contact-section { padding: 75px 0; }
+
+    .footer-inner {
+        padding: 25px 0;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .ticker-track { animation: none; }
+
+    .portfolio-card,
+    .portfolio-image,
+    .portfolio-art {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header class="header">
     <nav class="navbar container">
-
         <a href="#home" class="brand" aria-label="Mishra Media Works Home">
-            <img
-                src="./static/website/images/mishra-logo.jpeg"
-                alt="Mishra Media Works Logo"
-                class="brand-logo">
+            <span class="brand-text">
+                MISHRA
+                <small>MEDIA WORKS</small>
+            </span>
         </a>
 
-        <button class="menu-toggle"
-                id="menuToggle"
-                type="button"
-                aria-label="Open navigation"
-                aria-expanded="false"
-                aria-controls="navLinks">
+        <button class="menu-toggle" id="menuToggle"
+                type="button" aria-label="Open navigation"
+                aria-expanded="false" aria-controls="navLinks">
             <span></span>
             <span></span>
             <span></span>
@@ -52,7 +1054,6 @@
             <a href="#why-us" class="nav-link">Why Us</a>
             <a href="#contact" class="nav-link nav-contact">Contact Us ↗</a>
         </div>
-
     </nav>
 
     <div class="gold-animated-line"><span></span></div>
@@ -75,13 +1076,11 @@
 
 <main>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero" id="home">
-
         <div class="hero-glow"></div>
 
         <div class="container hero-content">
-
             <p class="eyebrow">
                 <span class="dot"></span>
                 CREATIVE IDEAS. DIGITAL IMPACT.
@@ -98,36 +1097,24 @@
             </p>
 
             <div class="hero-actions">
-                <a href="#contact" class="btn btn-gold">
-                    Start Your Project ↗
-                </a>
-
-                <a href="#portfolio" class="btn btn-outline">
-                    Explore Our Work
-                </a>
+                <a href="#contact" class="btn btn-gold">Start Your Project ↗</a>
+                <a href="#portfolio" class="btn btn-outline">Explore Our Work</a>
             </div>
 
             <div class="hero-note">
                 <span class="note-line"></span>
                 YOUR VISION, OUR DIGITAL CRAFT
             </div>
-
         </div>
 
-        <a href="#about" class="scroll-cue">
-            SCROLL TO EXPLORE ↓
-        </a>
-
+        <a href="#about" class="scroll-cue">SCROLL TO EXPLORE ↓</a>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT -->
     <section class="section about-section" id="about">
-
         <div class="container two-column">
-
             <div>
                 <p class="section-label">01 — WHO WE ARE</p>
-
                 <h2>
                     Ideas That Turn Into<br>
                     <span class="gold">Digital Reality.</span>
@@ -135,28 +1122,19 @@
             </div>
 
             <div class="about-copy">
-
                 <p>
                     Mishra Media Works helps businesses establish a
                     professional digital presence through thoughtful design,
                     modern websites and creative solutions.
                 </p>
-
-                <a href="#services" class="text-link">
-                    Discover Our Services →
-                </a>
-
+                <a href="#services" class="text-link">Discover Our Services →</a>
             </div>
-
         </div>
-
     </section>
 
-    <!-- SERVICES SECTION -->
+    <!-- SERVICES -->
     <section class="section services-section" id="services">
-
         <div class="container">
-
             <p class="section-label">02 — WHAT WE DO</p>
 
             <div class="section-heading">
@@ -165,69 +1143,44 @@
             </div>
 
             <div class="service-grid">
-
                 <article class="service-card reveal">
                     <span class="service-number">01</span>
                     <div class="service-icon">⌘</div>
                     <h3>Website Development</h3>
-                    <p>
-                        Responsive business websites, landing pages
-                        and custom web applications.
-                    </p>
-                    <a href="#contact" class="card-link">
-                        Discuss a Project ↗
-                    </a>
+                    <p>Responsive business websites, landing pages and custom web applications.</p>
+                    <a href="#contact" class="card-link">Discuss a Project ↗</a>
                 </article>
 
                 <article class="service-card reveal">
                     <span class="service-number">02</span>
                     <div class="service-icon">✳</div>
                     <h3>UI & Graphic Design</h3>
-                    <p>
-                        Modern layouts and visual assets for a
-                        consistent brand identity.
-                    </p>
-                    <a href="#contact" class="card-link">
-                        Discuss a Project ↗
-                    </a>
+                    <p>Modern layouts and visual assets for a consistent brand identity.</p>
+                    <a href="#contact" class="card-link">Discuss a Project ↗</a>
                 </article>
 
                 <article class="service-card reveal">
                     <span class="service-number">03</span>
                     <div class="service-icon">◎</div>
                     <h3>Social Media Creatives</h3>
-                    <p>
-                        Creative graphics and content assets for
-                        your online platforms.
-                    </p>
-                    <a href="#contact" class="card-link">
-                        Discuss a Project ↗
-                    </a>
+                    <p>Creative graphics and content assets for your online platforms.</p>
+                    <a href="#contact" class="card-link">Discuss a Project ↗</a>
                 </article>
-
             </div>
-
         </div>
-
     </section>
 
-    <!-- PORTFOLIO SECTION -->
+    <!-- PORTFOLIO -->
     <section class="section portfolio-section" id="portfolio">
-
         <div class="container">
-
             <p class="section-label">03 — SELECTED WORK</p>
 
             <div class="section-heading">
                 <h2>Our <span class="gold">Portfolio</span></h2>
-                <p>
-                    Sample concepts showing our approach to digital experiences.
-                </p>
+                <p>Sample concepts showing our approach to digital experiences.</p>
             </div>
 
-            <!-- First three portfolio cards -->
             <div class="portfolio-grid">
-
                 <article class="project-card reveal">
                     <div class="project-art project-one">
                         <span>01 / WEB DESIGN</span>
@@ -260,23 +1213,19 @@
                         <span>Brand & Web Concept</span>
                     </div>
                 </article>
-
             </div>
 
-            <!-- Digital Marketing Portfolio Cards -->
+            <!-- META ADS, GOOGLE ADS, WEB DEVELOPMENT -->
             <div class="portfolio-grid">
-
                 <article class="portfolio-card">
                     <div class="portfolio-image meta-bg">
                         <span class="portfolio-number">04 / META ADS</span>
-
                         <div class="portfolio-art">
                             <span class="meta-symbol">◎</span>
                             <h3>Reach<br>More People.</h3>
                             <p>Facebook & Instagram Advertising</p>
                         </div>
                     </div>
-
                     <h3>Meta Ads Campaigns</h3>
                     <p>Facebook & Instagram Advertising</p>
                 </article>
@@ -284,14 +1233,12 @@
                 <article class="portfolio-card">
                     <div class="portfolio-image google-bg">
                         <span class="portfolio-number">05 / GOOGLE ADS</span>
-
                         <div class="portfolio-art">
                             <span class="google-symbol">G</span>
                             <h3>Be Found.<br>Get Chosen.</h3>
                             <p>Search Advertising Campaigns</p>
                         </div>
                     </div>
-
                     <h3>Google Ads Campaigns</h3>
                     <p>Search Ads & Lead Generation</p>
                 </article>
@@ -299,46 +1246,34 @@
                 <article class="portfolio-card">
                     <div class="portfolio-image web-bg">
                         <span class="portfolio-number">06 / WEB DESIGN</span>
-
                         <div class="portfolio-art">
                             <span class="web-symbol">⌘</span>
                             <h3>Design.<br>Develop. Deliver.</h3>
                             <p>Modern Responsive Websites</p>
                         </div>
                     </div>
-
                     <h3>Website Development</h3>
                     <p>Business Websites & Landing Pages</p>
                 </article>
-
             </div>
 
             <p class="portfolio-disclaimer">
-                These are sample concepts. Replace them with your actual
-                projects before publishing.
+                These are sample concepts. Replace them with your actual projects before publishing.
             </p>
-
         </div>
-
     </section>
 
-    <!-- WHY CHOOSE US -->
+    <!-- WHY US -->
     <section class="section why-section" id="why-us">
-
         <div class="container">
-
             <p class="section-label">04 — WHY CHOOSE US</p>
 
             <div class="section-heading">
                 <h2>Built Around <span class="gold">Your Goals.</span></h2>
-                <p>
-                    Thoughtful design, responsive development
-                    and clear communication.
-                </p>
+                <p>Thoughtful design, responsive development and clear communication.</p>
             </div>
 
             <div class="why-grid">
-
                 <article class="why-item reveal">
                     <span>✦</span>
                     <h3>Modern Design</h3>
@@ -362,28 +1297,19 @@
                     <h3>Tailored Solutions</h3>
                     <p>Digital solutions suited to your requirements.</p>
                 </article>
-
             </div>
-
         </div>
-
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT -->
     <section class="contact-section" id="contact">
-
         <div class="container contact-box reveal">
-
             <p class="section-label">05 — LET'S CONNECT</p>
-
             <h2>
                 Have an Idea?<br>
                 <span class="gold">Let's Build It.</span>
             </h2>
-
-            <p>
-                Tell us about your project. Let's discuss how we can help.
-            </p>
+            <p>Tell us about your project. Let's discuss how we can help.</p>
 
             <a class="btn btn-gold"
                href="https://wa.me/917081747305"
@@ -393,37 +1319,135 @@
             </a>
 
             <p class="contact-note">
-                Replace the sample number with your WhatsApp number.
+                Replace the sample number with your WhatsApp number if needed.
             </p>
-
         </div>
-
     </section>
 
 </main>
 
 <!-- FOOTER -->
 <footer class="footer">
-
     <div class="container footer-inner">
-
-        <a href="#home" class="brand footer-brand">
-            <img
-                src="./static/website/images/mishra-logo.jpeg"
-                alt="Mishra Media Works Logo"
-                class="brand-logo">
+        <a href="#home" class="brand">
+            <span class="brand-text">
+                MISHRA
+                <small>MEDIA WORKS</small>
+            </span>
         </a>
 
-        <p>
-            © <span id="currentYear"></span>
-            Mishra Media Works. All rights reserved.
-        </p>
-
+        <p>© <span id="currentYear"></span> Mishra Media Works. All rights reserved.</p>
         <a href="#home" class="back-top">Back to Top ↑</a>
-
     </div>
-
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const navItems = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll("main section[id]");
+    const year = document.getElementById("currentYear");
+
+    // Automatic footer year
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+
+    // Mobile navigation
+    function closeMenu() {
+        if (!menuToggle || !navLinks) return;
+
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+    }
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation" : "Open navigation"
+            );
+        });
+
+        navItems.forEach(link => {
+            link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("click", event => {
+            if (
+                !navLinks.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 760) {
+                closeMenu();
+            }
+        });
+    }
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if ("IntersectionObserver" in window && !reducedMotion) {
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12 }
+        );
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+    } else {
+        revealElements.forEach(element => {
+            element.classList.add("visible");
+        });
+    }
+
+    // Highlight active navbar section
+    if ("IntersectionObserver" in window) {
+        const sectionObserver = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+
+                    navItems.forEach(link => {
+                        const active =
+                            link.getAttribute("href") ===
+                            `#${entry.target.id}`;
+
+                        link.classList.toggle("active", active);
+                    });
+                });
+            },
+            { rootMargin: "-25% 0px -60% 0px" }
+        );
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+    }
+});
+</script>
 
 </body>
 </html>
